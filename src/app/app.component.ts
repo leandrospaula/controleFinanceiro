@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'controleFinanceiro';
+
+  menu() : boolean{
+    return !window.location.href.toString().includes('home')
+  }
 }

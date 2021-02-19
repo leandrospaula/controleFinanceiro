@@ -1,0 +1,41 @@
+<div class="row conteudo">
+    <div class="col-sm-12">
+        <div class="card">
+            <h3 class="card-header">MINHA CONTA</h3>
+            <div class="card-body">
+                <h5 class="card-title">Administre os dados da sua conta</h5>
+                <hr />
+                <div>
+                    <br /><br />
+                    <form #form="ngForm" (submit)="salvar()">
+                        <div class="form-row">
+                            <div class="form-group col-sm-12 col-md-6">
+                                <label class="obrigatorio">E-mail</label>
+                                <input class="form-control" type="email" required [(ngModel)]="usuario.email"
+                                    name="email" placeholder="seuemail@email.com" #email="ngModel" maxlength="100">
+                                <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+                                    É necessário um E-mail para sua conta.
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12 col-md-6">
+                                <label class="obrigatorio">Nome</label>
+                                <input class="form-control" type="email" required [(ngModel)]="usuario.nome" name="nome"
+                                    placeholder="Entre com um nome identificador para sua conta" #nome="ngModel"
+                                    maxlength="100">
+                                <div *ngIf="nome.invalid && nome.touched" class="alert alert-danger">
+                                    É necessário um nome para sua conta.
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <a role="button" class="btn btn-secondary" href="javascript:void(0)" (click)="trocarSenha()"><i class="icon mdi mdi-key-change"></i>&nbsp; Trocar Minha Senha</a>
+                            </div>
+                        </div>
+                        <button type="submit" [disabled]="!form.valid" class="btn btn-primary"><i
+                                class="icon mdi mdi-content-save"></i>&nbsp;Salvar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

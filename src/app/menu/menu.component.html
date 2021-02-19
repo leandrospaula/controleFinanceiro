@@ -1,0 +1,53 @@
+<div class="row">
+   <div class="col-sm-3">
+      <div class="nav-side-menu">
+         <div class="brand">CONTROLE FINANCEIRO</div>
+         <i class="icon mdi mdi-menu mdi-24px toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+         <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+               <li routerLinkActive="ativo" [routerLink]="['/controle']">
+                  <a role="button">
+                     <i class="icon mdi mdi-cash-usd-outline mdi-24px"></i> Controle Financeiro
+                  </a>
+               </li>
+               <li routerLinkActive="ativo" [routerLink]="['/despesa-fixa']">
+                  <a role="button">
+                     <i class="icon mdi mdi-calendar-refresh mdi-24px"></i> Despesas Fixas
+                  </a>
+               </li>
+               <li routerLinkActive="ativo" [routerLink]="['/cartoes']">
+                  <a role="button">
+                     <i class="icon mdi mdi-credit-card mdi-24px"></i> Meus Cartões
+                  </a>
+               </li>
+               <li routerLinkActive="ativo" [routerLink]="['/minha-conta']">
+                  <a role="button">
+                     <i class="icon mdi mdi-account mdi-24px"></i> Minha Conta
+                  </a>
+               </li>
+               <hr style="border-top: 1px solid #ffffff95;" />
+               <li routerLinkActive="ativo" (click)="desenvolvimento()" style="background-color: #424242;">
+                  <a role="button">
+                     <i class="icon mdi mdi-information-variant mdi-24px"></i> Dicas de Econômia</a>
+               </li>
+               <li routerLinkActive="ativo" (click)="desenvolvimento()" style="background-color: #424242;">
+                  <a role="button">
+                     <i class="icon mdi mdi-chart-donut-variant mdi-24px"></i> Relatórios
+                  </a>
+               </li>
+               <li routerLinkActive="ativo" (click)="sair()">
+                  <a role="button">
+                     <i class="icon mdi mdi-logout mdi-24px"></i> Sair
+                  </a>
+               </li>
+               <!-- <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fa fa-car fa-lg"></i> New <span class="arrow"></span></a>
+               </li>
+               <ul class="sub-menu collapse" id="new">
+                  <li>New New 1</li>
+               </ul> -->
+            </ul>
+         </div>
+      </div>
+   </div>
+</div>

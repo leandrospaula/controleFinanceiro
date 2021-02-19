@@ -1,0 +1,46 @@
+.principal{
+    background-image: url('src/assets/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.camada{
+    background-color: #00000095;
+}
+
+.divcentro{
+    color: white;
+    padding-top: 8em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+.titulo{
+    font-weight: 800;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.item:hover{
+    transform: scale(1.5);
+    transition: 1s;
+    z-index: 1;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background-color: #00000085;
+}
+
+.item{
+    transform: scale(1.0);
+    transition: 1s;
+}
+
+h1{
+    font-weight: 700;
+}
+
+.bg{
+    background-color: #00000099;
+    transition: 1s;
+}
