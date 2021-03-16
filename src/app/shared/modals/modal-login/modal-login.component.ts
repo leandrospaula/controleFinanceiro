@@ -9,7 +9,9 @@ import { ModalLoginService } from './modal-login.service';
 })
 export class ModalLoginComponent implements OnInit {
 
-  msg : String = '';
+  msg: String = '';
+  sucesso: String = '';
+  criando: boolean = false;
   usuario: any = {
     email: '',
     senha: ''
@@ -17,19 +19,33 @@ export class ModalLoginComponent implements OnInit {
 
   @ViewChild('fechar') fechar: ElementRef;
 
-  constructor(private service: ModalLoginService, private rota : Router) { }
+  constructor(private service: ModalLoginService, private rota: Router) { }
 
   ngOnInit(): void {
   }
 
   realizarLogin() {
-    this.service.login(this.usuario).subscribe(resp => {
-      window.localStorage.setItem('token', resp.headers.get('Authorization').replace('Bearer ', ''));
-      this.fechar.nativeElement.click();
-      this.rota.navigate(['controle']);
-    }, (e) => {
-      this.msg = "Falha no login, conta inexistente ou credenciais inválidas.";
-    });
+    if (!this.criando) {
+      this.service.login(this.usuario).subscribe(resp => {
+        window.localStorage.setItem('token', resp.headers.get('Authorization').replace('Bearer ', ''));
+        this.fechar.nativeElement.click();
+        this.rota.navigate(['controle']);
+      }, (e) => {
+        this.msg = "Falha no login, conta inexistente ou credenciais inválidas.";
+        this.sucesso = "";
+      });
+    } else {
+      this.service.criar(this.usuario).subscribe((res) => {
+        this.sucesso = "Conta criada com sucesso, você já pode logar com suas credenciais."
+      }, (e) => {
+        this.sucesso = "";
+        this.msg = e.error.erros;
+      });
+    }
+  }
+
+  criar() {
+    this.criando = !this.criando;
   }
 
 }

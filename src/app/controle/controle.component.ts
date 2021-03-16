@@ -269,7 +269,6 @@ export class ControleComponent implements OnInit {
             const promises = [];
 
             list.forEach(df => {
-              console.log('Iniciando ' + df.despesaFixa.nome);
               let p = new Promise<void>((resolve) => {
                 if (df.despesaFixa.tipo == 'V') {
                   df.valor = undefined;
