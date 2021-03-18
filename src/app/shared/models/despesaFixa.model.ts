@@ -5,7 +5,6 @@ export class DespesaFixa {
     nome : String;
     vencimento : Number;
     usuario : Usuario | undefined;
-    ano : Number;
     tipo : String | undefined;
     calculo: String | undefined;
     ativo: boolean;
@@ -15,7 +14,6 @@ export class DespesaFixa {
     constructor() {
         this.nome = '';
         this.vencimento = 0;
-        this.ano = 0;
         this.ativo = true;
     }
 }
