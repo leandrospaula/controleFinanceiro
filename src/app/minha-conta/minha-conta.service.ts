@@ -12,7 +12,7 @@ export class MinhaContaService {
   constructor(private http : HttpClient) { }
 
   getPorId(): Observable<any>{
-    return this.http.get(environment.URL + 'id');
+    return this.http.get(environment.URL + 'usuario/id');
   }
 
   salvar(usuario : Usuario, senha: boolean): Observable<any>{
