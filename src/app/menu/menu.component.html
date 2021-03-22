@@ -35,6 +35,11 @@
                      <i class="icon mdi mdi-chart-donut-variant mdi-24px"></i> Relatórios
                   </a>
                </li>
+               <li routerLinkActive="ativo"[routerLink]="['/detalhes']">
+                  <a role="button">
+                     <i class="icon mdi mdi-new-box mdi-24px"></i> Detalhes da última versão
+                  </a>
+               </li>
                <li routerLinkActive="ativo" (click)="sair()">
                   <a role="button">
                      <i class="icon mdi mdi-logout mdi-24px"></i> Sair

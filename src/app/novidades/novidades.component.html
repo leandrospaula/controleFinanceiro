@@ -1,0 +1,54 @@
+<div class="row conteudo">
+    <div class="col-sm-12">
+        <div class="card">
+            <h3 class="card-header">NOVIDADES</h3>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-10">
+                        <h5 class="card-title">Ultima versão em: 21/03/2021</h5>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-2">
+                        <label>Versão:</label>
+                        <select [(ngModel)]="versao" name="versaoS" #versaoS="ngModel" class="form-control">
+                            <option value="21/03/2021">21/03/2021</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr />
+                <div>
+                    Detalhes da versão de <b>{{versao}}</b>:
+                    <br /><br />
+                    <div *ngIf="versao == '21/03/2021'">
+                        <ul>
+                            <h5>Novas funções</h5>
+                            <li>
+                                <h6>Tela de Detalhes da versão</h6>
+                                <span>Tela de novidades e ajustes adicionada para ser acessada pelo menu. É possível ver
+                                    detalhes
+                                    da
+                                    atual versão e de versões anteriores</span>
+                            </li>
+                            <hr />
+                            <li>
+                                <h6>Recalculo de valores</h6>
+                                <span>É possível dentro de um mês recalcular os valores caso eles estejam incorretos,
+                                    clicando no icone <i class="icon mdi mdi-autorenew mdi-24px"></i> para que os
+                                    valores sejam
+                                    re-verificados.</span>
+                            </li>
+                            <hr>
+                            <h5>Correções</h5>
+                            <li>
+                                <h6>Ajuste de erro ao sair de um mês</h6>
+                                <span>Erro que acontecia em valores de um mês para o outro, ao editar um mês futuro ou
+                                    passado e retornar ao mês atual foi ajustado, para que valores incorretos não fossem mais exibidos.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

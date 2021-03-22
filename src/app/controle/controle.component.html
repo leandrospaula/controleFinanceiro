@@ -61,9 +61,10 @@
             </div>
             <div *ngIf="mes.id != undefined">
                 <div class="card-header header-mes">
-                    <span style="font-weight: bold;">{{nome(mes.mes)}} {{mes.ano}}</span><span (click)="fecharEdicao()"
-                        style="float: right;cursor: pointer;color: white;"><i class="icon mdi mdi-close-thick mdi-24px"
-                            style="color: #ff2f1a;"></i></span>
+                    <span style="font-weight: bold;">{{nome(mes.mes)}} {{mes.ano}}</span>
+                    &nbsp;&nbsp;<span style="cursor: pointer; color: greenyellow;" title="Recalcular" (click)="recalcular()"><i class="icon mdi mdi-autorenew mdi-24px"></i></span>
+                    <span (click)="fecharEdicao()" style="float: right;cursor: pointer;color: white;"><i
+                            class="icon mdi mdi-close-thick mdi-24px" style="color: #ff2f1a;"></i></span>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -185,13 +186,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-6 col-md-2">
-                                    <br/>
+                                    <br />
                                     <input type="checkbox" id="chkAtivo" [(ngModel)]="cc.terceiros" name="ativo"
                                         #ativo="ngModel">&nbsp;
                                     <label class="form-check-label" for="chkAtivo">Não somar</label>
                                 </div>
                                 <div class="form-group col-sm-12 col-md-1">
-                                    <br/>
+                                    <br />
                                     <span class="btn btn-light" title="Salvar" (click)="salvarCartao()"><i
                                             class="icon mdi mdi-content-save"></i></span>
                                 </div>
@@ -247,13 +248,13 @@
                                 <div class="form-group col-sm-12 col-md-6">
                                     <label>Nome da despesa</label>
                                     <input class="form-control" type="text" placeholder="Nome da despesa"
-                                        (keyup.enter)="salvarDespesa(false)"
-                                        (keyup.control.enter)="salvarDespesa(true)" [(ngModel)]="d.nome"
-                                        name="nomeDesp" #nomeDesp="ngModel">
+                                        (keyup.enter)="salvarDespesa(false)" (keyup.control.enter)="salvarDespesa(true)"
+                                        [(ngModel)]="d.nome" name="nomeDesp" #nomeDesp="ngModel">
                                 </div>
                                 <div class="form-group col-sm-12 col-md-2">
                                     <label style="color: white;">Ações</label>
-                                    <span class="btn btn-light form-control" title="Salvar" (click)="salvarDespesa(false)"><i
+                                    <span class="btn btn-light form-control" title="Salvar"
+                                        (click)="salvarDespesa(false)"><i
                                             class="icon mdi mdi-content-save"></i>&nbsp;Salvar</span>
                                 </div>
                             </div>

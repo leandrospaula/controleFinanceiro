@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MenuModule } from './menu/menu.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/interceptor';
+import { NovidadesComponent } from './novidades/novidades.component';
 
 @NgModule({
   declarations: [

@@ -38,6 +38,88 @@ export class ControleComponent implements OnInit {
     this.carregarDados();
   }
 
+  recalcular() {
+    Swal.fire({
+      title: 'Recalcular?',
+      text: "Os valores aparentam estar incorretos? Deseja recalcular os valores deste mês?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Recalcular',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Aguarde',
+          icon: 'info',
+          text: 'Porfavor aguarde, os valores estão sendo recalculados!',
+          showConfirmButton: false,
+          allowOutsideClick: false
+        });
+
+        //Recontagem de despesas fixas
+        let f = new Promise<void>((resolve) => {
+          const fixas = [];
+          this.mes.totalFixo = 0;
+          this.despesasFixas.forEach(df => {
+            let p = new Promise<void>((resolve) => {
+              this.mes.totalFixo += Number(df.valor == undefined ? 0 : df.valor);
+              this.mes.totalFixo = Number(this.mes.totalFixo.toFixed(2));
+              resolve();
+            });
+            fixas.push(p);
+          });
+
+          Promise.all(fixas).then(() => {
+            resolve();
+          });
+        });
+
+        let c = new Promise<void>((resolve) => {
+          const cartoes = [];
+          this.mes.totalCartao = 0;
+          this.contasCartao.forEach(c => {
+            let p = new Promise<void>((resolve) => {
+              if (!c.terceiros) {
+                this.mes.totalCartao += Number(c.valor == undefined ? 0 : c.valor);
+                this.mes.totalCartao = Number(this.mes.totalCartao.toFixed(2));
+                resolve();
+              }
+            });
+            cartoes.push(p);
+          });
+
+          Promise.all(cartoes).then(() => {
+            resolve();
+          });
+        });
+
+        let d = new Promise<void>((resolve) => {
+          const despesas = [];
+          this.mes.totalGasto = 0;
+          let p = new Promise<void>((resolve) => {
+            this.despesas.forEach(d => {
+              this.mes.totalGasto += Number(d.valor == undefined ? 0 : d.valor);
+              this.mes.totalGasto = Number(this.mes.totalGasto.toFixed(2));
+              resolve();
+            });
+          });
+
+          Promise.all(despesas).then(() => {
+            resolve();
+          });
+        });
+
+        Promise.all([f, c, d]).then(() => {
+          Swal.close();
+          this.salvar();
+          Swal.fire('Atualizado', 'Valores atualizados', 'success');
+        });
+      }//Fim do SWAL
+    })
+  }
+
   carregarDados() {
     this.service.getMeses(this.ano).subscribe((res) => {
       this.meses = res.dados;
@@ -159,6 +241,7 @@ export class ControleComponent implements OnInit {
 
   fecharEdicao() {
     this.mes = new Mes();
+    this.carregarDados();
   }
 
   deletarContaCartao(c: DespesaCartao) {
