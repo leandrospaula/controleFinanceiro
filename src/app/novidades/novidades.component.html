@@ -43,8 +43,21 @@
                             <li>
                                 <h6>Ajuste de erro ao sair de um mês</h6>
                                 <span>Erro que acontecia em valores de um mês para o outro, ao editar um mês futuro ou
-                                    passado e retornar ao mês atual foi ajustado, para que valores incorretos não fossem mais exibidos.</span>
+                                    passado e retornar ao mês atual foi ajustado, para que valores incorretos não fossem
+                                    mais exibidos.</span>
                             </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="versao == '15/04/2021'">
+                        <ul>
+                            <h5>Ajuste de erros</h5>
+                            <li>
+                                <h6>Erros ajustados</h6>
+                                <span> - Ajustado erro na rotina de recalculo mensal, que fazia com que o alerta de
+                                    "aguarde" e o salvamento nunca fosse concluído.</span><br />
+                                <span> - Ajustado erro ao dividir uma conta de terceiros, somava no mês seguinte como se fosse conta própria.</span>
+                            </li>
+                            <hr />
                         </ul>
                     </div>
                 </div>

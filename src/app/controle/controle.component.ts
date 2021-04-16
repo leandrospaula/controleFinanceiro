@@ -63,7 +63,6 @@ export class ControleComponent implements OnInit {
           const fixas = [];
           this.mes.totalFixo = 0;
           this.contasFixas.forEach(df => {
-            console.log(JSON.stringify(df));
             let p = new Promise<void>((resolve) => {
               if (df.despesaFixa.tipo == 'F') {
                 this.mes.totalFixo += Number(df.despesaFixa.parte == undefined ? 0 : df.despesaFixa.parte);
@@ -75,6 +74,9 @@ export class ControleComponent implements OnInit {
             });
             fixas.push(p);
           });
+          if (this.contasFixas.length == 0) {
+            resolve();
+          }
 
           Promise.all(fixas).then(() => {
             resolve();
@@ -90,10 +92,15 @@ export class ControleComponent implements OnInit {
                 this.mes.totalCartao += Number(c.valor == undefined ? 0 : c.valor);
                 this.mes.totalCartao = Number(this.mes.totalCartao.toFixed(2));
                 resolve();
+              }else{
+                resolve();
               }
             });
             cartoes.push(p);
           });
+          if (this.contasCartao.length == 0) {
+            resolve();
+          }
 
           Promise.all(cartoes).then(() => {
             resolve();
@@ -111,6 +118,9 @@ export class ControleComponent implements OnInit {
             });
             despesas.push(p);
           });
+          if (this.despesas.length == 0) {
+            resolve();
+          }
 
           Promise.all(despesas).then(() => {
             resolve();
