@@ -12,6 +12,8 @@
                         <label>Versão:</label>
                         <select [(ngModel)]="versao" name="versaoS" #versaoS="ngModel" class="form-control">
                             <option value="21/03/2021">21/03/2021</option>
+                            <option value="15/04/2021">15/04/2021</option>
+                            <option value="24/04/2021">24/04/2021</option>
                         </select>
                     </div>
                 </div>
@@ -55,9 +57,27 @@
                                 <h6>Erros ajustados</h6>
                                 <span> - Ajustado erro na rotina de recalculo mensal, que fazia com que o alerta de
                                     "aguarde" e o salvamento nunca fosse concluído.</span><br />
-                                <span> - Ajustado erro ao dividir uma conta de terceiros, somava no mês seguinte como se fosse conta própria.</span>
+                                <span> - Ajustado erro ao dividir uma conta de terceiros, somava no mês seguinte como se
+                                    fosse conta própria.</span>
                             </li>
                             <hr />
+                        </ul>
+                    </div>
+                    <div *ngIf="versao == '24/04/2021'">
+                        <ul>
+                            <h5>Correções</h5>
+                            <li>
+                                <h6>Correção de recalculo</h6>
+                                <span>Correção na função de recalculo que contabilizava incorretamente despesas
+                                    váriaveis.</span>
+                            </li>
+                            <hr>
+                            <h5>Novas funções:</h5>
+                            <li>
+                                <h6>Mudança de mês facilitada</h6>
+                                <span>Alternar entre meses agora é possível ao estar editando um mês, não sendo
+                                    necessário mais voltar a listagem de mês.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -61,10 +61,15 @@
             </div>
             <div *ngIf="mes.id != undefined">
                 <div class="card-header header-mes">
+                    <button *ngIf="mes.mes > 1" (click)="mudarMes(false)" type="button" class="btn btn-light menu" style="width: 3rem;float: left;"><i
+                            class="icon mdi mdi-arrow-left-bold"></i></button>
                     <span style="font-weight: bold;">{{nome(mes.mes)}} {{mes.ano}}</span>
-                    &nbsp;&nbsp;<span style="cursor: pointer; color: greenyellow;" title="Recalcular" (click)="recalcular()"><i class="icon mdi mdi-autorenew mdi-24px"></i></span>
+                    &nbsp;&nbsp;<span style="cursor: pointer; color: greenyellow;" title="Recalcular"
+                        (click)="recalcular()"><i class="icon mdi mdi-autorenew mdi-24px"></i></span>
                     <span (click)="fecharEdicao()" style="float: right;cursor: pointer;color: white;"><i
                             class="icon mdi mdi-close-thick mdi-24px" style="color: #ff2f1a;"></i></span>
+                    <button *ngIf="mes.mes < 12" (click)="mudarMes(true)" type="button" class="btn btn-light menu" style="width: 3rem;float: right;margin-right: 20px;"><i
+                            class="icon mdi mdi-arrow-right-bold"></i></button>
                 </div>
                 <div class="card-body">
                     <div class="form-row">

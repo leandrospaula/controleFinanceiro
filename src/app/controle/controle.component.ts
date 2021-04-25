@@ -67,7 +67,8 @@ export class ControleComponent implements OnInit {
               if (df.despesaFixa.tipo == 'F') {
                 this.mes.totalFixo += Number(df.despesaFixa.parte == undefined ? 0 : df.despesaFixa.parte);
               } else {
-                this.mes.totalFixo += Number(df.despesaFixa.valor == undefined ? 0 : df.despesaFixa.valor);
+                alert(JSON.stringify(df));
+                this.mes.totalFixo += Number(df.valor == undefined ? 0 : df.valor);
               }
               this.mes.totalFixo = Number(this.mes.totalFixo.toFixed(2));
               resolve();
@@ -92,7 +93,7 @@ export class ControleComponent implements OnInit {
                 this.mes.totalCartao += Number(c.valor == undefined ? 0 : c.valor);
                 this.mes.totalCartao = Number(this.mes.totalCartao.toFixed(2));
                 resolve();
-              }else{
+              } else {
                 resolve();
               }
             });
@@ -134,6 +135,10 @@ export class ControleComponent implements OnInit {
         });
       }//Fim do SWAL
     })
+  }
+
+  mudarMes(operacao: boolean) {
+    this.editarMes(this.meses[this.meses.indexOf(this.mes) + (operacao ? 1 : -1)]);
   }
 
   carregarDados() {
