@@ -11,9 +11,10 @@
                     <div class="form-group col-sm-6 col-md-2">
                         <label>Versão:</label>
                         <select [(ngModel)]="versao" name="versaoS" #versaoS="ngModel" class="form-control">
-                            <option value="21/03/2021">21/03/2021</option>
-                            <option value="15/04/2021">15/04/2021</option>
+                            <option value="30/04/2021">30/04/2021</option>
                             <option value="24/04/2021">24/04/2021</option>
+                            <option value="15/04/2021">15/04/2021</option>
+                            <option value="21/03/2021">21/03/2021</option>
                         </select>
                     </div>
                 </div>
@@ -22,6 +23,49 @@
                 <div>
                     Detalhes da versão de <b>{{versao}}</b>:
                     <br /><br />
+                    <div *ngIf="versao == '30/04/2021'">
+                        <ul>
+                            <h5>Correções</h5>
+                            <li>
+                                <span>Correção de exibição na despesa fixa, que exibia o valor atual configurado na tela de despesas fixas, e não o valor real do mês.</span>
+                            </li>
+                            <hr>
+                            <h5>Novidades</h5>
+                            <li>
+                                <span>O mês atual agora aparece por primeiro na tela de controle.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="versao == '24/04/2021'">
+                        <ul>
+                            <h5>Correções</h5>
+                            <li>
+                                <h6>Correção de recalculo</h6>
+                                <span>Correção na função de recalculo que contabilizava incorretamente despesas
+                                    váriaveis.</span>
+                            </li>
+                            <hr>
+                            <h5>Novas funções:</h5>
+                            <li>
+                                <h6>Mudança de mês facilitada</h6>
+                                <span>Alternar entre meses agora é possível ao estar editando um mês, não sendo
+                                    necessário mais voltar a listagem de mês.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf="versao == '15/04/2021'">
+                        <ul>
+                            <h5>Ajuste de erros</h5>
+                            <li>
+                                <h6>Erros ajustados</h6>
+                                <span> - Ajustado erro na rotina de recalculo mensal, que fazia com que o alerta de
+                                    "aguarde" e o salvamento nunca fosse concluído.</span><br />
+                                <span> - Ajustado erro ao dividir uma conta de terceiros, somava no mês seguinte como se
+                                    fosse conta própria.</span>
+                            </li>
+                            <hr />
+                        </ul>
+                    </div>
                     <div *ngIf="versao == '21/03/2021'">
                         <ul>
                             <h5>Novas funções</h5>
@@ -47,36 +91,6 @@
                                 <span>Erro que acontecia em valores de um mês para o outro, ao editar um mês futuro ou
                                     passado e retornar ao mês atual foi ajustado, para que valores incorretos não fossem
                                     mais exibidos.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div *ngIf="versao == '15/04/2021'">
-                        <ul>
-                            <h5>Ajuste de erros</h5>
-                            <li>
-                                <h6>Erros ajustados</h6>
-                                <span> - Ajustado erro na rotina de recalculo mensal, que fazia com que o alerta de
-                                    "aguarde" e o salvamento nunca fosse concluído.</span><br />
-                                <span> - Ajustado erro ao dividir uma conta de terceiros, somava no mês seguinte como se
-                                    fosse conta própria.</span>
-                            </li>
-                            <hr />
-                        </ul>
-                    </div>
-                    <div *ngIf="versao == '24/04/2021'">
-                        <ul>
-                            <h5>Correções</h5>
-                            <li>
-                                <h6>Correção de recalculo</h6>
-                                <span>Correção na função de recalculo que contabilizava incorretamente despesas
-                                    váriaveis.</span>
-                            </li>
-                            <hr>
-                            <h5>Novas funções:</h5>
-                            <li>
-                                <h6>Mudança de mês facilitada</h6>
-                                <span>Alternar entre meses agora é possível ao estar editando um mês, não sendo
-                                    necessário mais voltar a listagem de mês.</span>
                             </li>
                         </ul>
                     </div>

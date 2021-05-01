@@ -67,7 +67,6 @@ export class ControleComponent implements OnInit {
               if (df.despesaFixa.tipo == 'F') {
                 this.mes.totalFixo += Number(df.despesaFixa.parte == undefined ? 0 : df.despesaFixa.parte);
               } else {
-                alert(JSON.stringify(df));
                 this.mes.totalFixo += Number(df.valor == undefined ? 0 : df.valor);
               }
               this.mes.totalFixo = Number(this.mes.totalFixo.toFixed(2));
@@ -144,6 +143,12 @@ export class ControleComponent implements OnInit {
   carregarDados() {
     this.service.getMeses(this.ano).subscribe((res) => {
       this.meses = res.dados;
+      this.meses.forEach(m => {
+        if(m.mes == this.mesAtual && m.ano == this.anoAtual){
+          this.meses.splice(m.mes -1,1);
+          this.meses.unshift(m);
+        }
+      });
       this.service.getAnos().subscribe((res) => {
         this.anos = res.dados;
       });
