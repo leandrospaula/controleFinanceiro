@@ -11,6 +11,7 @@
                     <div class="form-group col-sm-6 col-md-2">
                         <label>Versão:</label>
                         <select [(ngModel)]="versao" name="versaoS" #versaoS="ngModel" class="form-control">
+                            <option value="10/05/2021">10/05/2021</option>
                             <option value="30/04/2021">30/04/2021</option>
                             <option value="24/04/2021">24/04/2021</option>
                             <option value="15/04/2021">15/04/2021</option>
@@ -23,6 +24,15 @@
                 <div>
                     Detalhes da versão de <b>{{versao}}</b>:
                     <br /><br />
+                    <div *ngIf="versao == '10/05/2021'">
+                        <ul>
+                            <h5>Correções</h5>
+                            <li>
+                                <span>Correção na troca rapida entre mês quen naõ levava ao mês correto quando o atual estava selecionado.</span>
+                            </li>
+                            <hr>
+                        </ul>
+                    </div>
                     <div *ngIf="versao == '30/04/2021'">
                         <ul>
                             <h5>Correções</h5>

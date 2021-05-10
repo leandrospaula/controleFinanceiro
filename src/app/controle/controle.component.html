@@ -134,7 +134,7 @@
                                         <td *ngIf="cf.despesaFixa.tipo == 'V' && cf.valor == null"
                                             (click)="confirmarValor(cf)">
                                             <a class="btn btn-secondary">Previsão: R$ {{(cf.previsao != null ?
-                                                cf.previsao.toFixed(2) : '?*')}}</a>
+                                                cf.previsao.toFixed(2) + '*' : '?*')}}</a>
                                         </td>
                                         <td>Dia {{cf.despesaFixa.vencimento}}</td>
                                         <td>
@@ -143,11 +143,13 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <hr />
-                                <small>&nbsp;&nbsp;<b>?* Não possível calcular com dados atuais</b></small><br />
-                                <span style="font-size: 20px;">&nbsp;&nbsp;Valor de despesas fixas:
-                                    <b>R$ {{mes.totalFixo}}</b></span>
                             </table>
+                            <hr />
+                            <small>&nbsp;&nbsp;<b>?* Não possível calcular com dados atuais</b></small><br />
+                            <small>&nbsp;&nbsp;<b>* Previsão baseada em valores confirmados dividido pela quantidade de
+                                    mêses</b></small><br />
+                            <span style="font-size: 20px;">&nbsp;&nbsp;Valor de despesas fixas:
+                                <b>R$ {{mes.totalFixo}}</b></span>
                         </div>
                         <div class="form-group col-sm-12 col-md-6"
                             style="border: solid #dee2e6;border-width: 1px 1px 3px 1px;padding: 0px;">

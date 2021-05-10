@@ -137,15 +137,24 @@ export class ControleComponent implements OnInit {
   }
 
   mudarMes(operacao: boolean) {
-    this.editarMes(this.meses[this.meses.indexOf(this.mes) + (operacao ? 1 : -1)]);
+    let alvo = this.mes.mes + (operacao ? 1 : -1);
+    console.log(`alvo ${alvo}, mes atual: ${this.mesAtual}`);
+    if (alvo == this.mesAtual) {
+      this.editarMes(this.meses[0]);
+    } else if (alvo < this.mesAtual) {
+      this.editarMes(this.meses[alvo]);
+    } else {
+      this.editarMes(this.meses[alvo - 1]);
+    }
+    // this.editarMes(this.meses[this.meses.indexOf(this.mes) + (operacao ? 1 : -1)]);
   }
 
   carregarDados() {
     this.service.getMeses(this.ano).subscribe((res) => {
       this.meses = res.dados;
       this.meses.forEach(m => {
-        if(m.mes == this.mesAtual && m.ano == this.anoAtual){
-          this.meses.splice(m.mes -1,1);
+        if (m.mes == this.mesAtual && m.ano == this.anoAtual) {
+          this.meses.splice(m.mes - 1, 1);
           this.meses.unshift(m);
         }
       });
