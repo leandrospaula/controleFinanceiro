@@ -1,6 +1,22 @@
 <app-modal-login></app-modal-login>
 <div class="principal">
-    <div class="camada">
+    <div *ngIf="loading" style="height: 100vh; background-color: #00000090;">
+        <div *ngIf="trys < 3">
+            <i class="icon mdi mdi-loading mdi-spin" style="margin-left: 45vw;color: white;font-size: 200px;"></i>
+            <div class="d-flex justify-content-center divcentro">
+                <span style="color: white; font-size: 50px;">Aguarde</span>
+            </div>
+        </div>
+        <div *ngIf="trys > 2">
+            <i class="icon mdi mdi-signal-off" style="margin-left: 45vw;color: white;font-size: 200px;"></i><br />
+            <div class="d-flex justify-content-center divcentro">
+                <span style="color: white; font-size: 50px;">Servidor em manutenção, aguarde uns minutos e tente
+                    novamente.</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="camada" *ngIf="!loading">
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" [ngClass]="{'bg': isScrolled}">
             <a class="navbar-brand" href="#">Controle Financeiro</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -14,7 +30,8 @@
                 <div class="my-2 my-lg-0">
                     <button class="btn btn-dark my-2 my-sm-0" data-target="#modalLogin" data-toggle="modal"
                         *ngIf="deslogado">Fazer Login</button>
-                    <button class="btn btn-dark my-2 my-sm-0" *ngIf="!deslogado" (click)="irRota()">Ir para controle</button>
+                    <button class="btn btn-dark my-2 my-sm-0" *ngIf="!deslogado" (click)="irRota()">Ir para
+                        controle</button>
                 </div>
             </div>
         </nav>
@@ -98,20 +115,22 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid" style="background-color: #00000080;" id="anon">
-        <div class="row" style="padding: 150px 0;">
-            <div class="col-sm-12 col-md-6">
-                <img src="assets/img/question.png"
-                    style="max-width: 100%;max-height: 100%;display: block;margin: 0px auto;" />
-            </div>
-            <div class="col-sm-12 col-md-6" style="color: white">
-                <h1 style="text-align: center;margin-top: 15%;">Anônimato é importante</h1>
-                <p style="font-weight: 500;text-align: center;">É comum sites que envolvam finanças perguntarem diversos
-                    dados a seu respeito, Nome, Celular, CPF entre outros. Aqui você pode simplismente decidir não se
-                    identificar,
-                    só é necessário um Login e uma senha.
-                </p>
+        <div class="container-fluid" style="background-color: #00000080;" id="anon">
+            <div class="row" style="padding: 150px 0;">
+                <div class="col-sm-12 col-md-6">
+                    <img src="assets/img/question.png"
+                        style="max-width: 100%;max-height: 100%;display: block;margin: 0px auto;" />
+                </div>
+                <div class="col-sm-12 col-md-6" style="color: white">
+                    <h1 style="text-align: center;margin-top: 15%;">Anônimato é importante</h1>
+                    <p style="font-weight: 500;text-align: center;">É comum sites que envolvam finanças perguntarem
+                        diversos
+                        dados a seu respeito, Nome, Celular, CPF entre outros. Aqui você pode simplismente decidir não
+                        se
+                        identificar,
+                        só é necessário um Login e uma senha.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

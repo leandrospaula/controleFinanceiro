@@ -9,7 +9,7 @@ export class NovidadesComponent implements OnInit {
 
   constructor() { }
 
-  versao: String = '10/05/2021';
+  versao: String = '15/06/2021';
 
   ngOnInit(): void {
   }

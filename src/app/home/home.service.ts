@@ -8,6 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  load() {
+    return this.http.get(environment.URL + 'public');
+  }
 
 }

@@ -6,11 +6,12 @@
 
                 <div class="row">
                     <div class="form-group col-sm-12 col-md-10">
-                        <h5 class="card-title">Ultima versão em: 21/03/2021</h5>
+                        <h5 class="card-title">Ultima versão em: 15/06/2021</h5>
                     </div>
                     <div class="form-group col-sm-6 col-md-2">
                         <label>Versão:</label>
                         <select [(ngModel)]="versao" name="versaoS" #versaoS="ngModel" class="form-control">
+                            <option value="15/06/2021">15/06/2021</option>
                             <option value="10/05/2021">10/05/2021</option>
                             <option value="30/04/2021">30/04/2021</option>
                             <option value="24/04/2021">24/04/2021</option>
@@ -24,11 +25,20 @@
                 <div>
                     Detalhes da versão de <b>{{versao}}</b>:
                     <br /><br />
+                    <div *ngIf="versao == '15/06/2021'">
+                        <ul>
+                            <h5>Novidade</h5>
+                            <li>
+                                <span>Adição de tela de carregamento na tela inicial até se conectar ao servidor.</span>
+                            </li>
+                        </ul>
+                    </div>
                     <div *ngIf="versao == '10/05/2021'">
                         <ul>
                             <h5>Correções</h5>
                             <li>
-                                <span>Correção na troca rapida entre mês quen naõ levava ao mês correto quando o atual estava selecionado.</span>
+                                <span>Correção na troca rapida entre mês quen naõ levava ao mês correto quando o atual
+                                    estava selecionado.</span>
                             </li>
                             <hr>
                         </ul>
@@ -37,7 +47,8 @@
                         <ul>
                             <h5>Correções</h5>
                             <li>
-                                <span>Correção de exibição na despesa fixa, que exibia o valor atual configurado na tela de despesas fixas, e não o valor real do mês.</span>
+                                <span>Correção de exibição na despesa fixa, que exibia o valor atual configurado na tela
+                                    de despesas fixas, e não o valor real do mês.</span>
                             </li>
                             <hr>
                             <h5>Novidades</h5>
