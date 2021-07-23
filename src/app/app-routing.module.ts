@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CartaoModule } from './cartao/cartao.module';
 import { ControleModule } from './controle/controle.module';
 import { DespesasFixasModule } from './despesas-fixas/despesas-fixas.module';
+import { DicasModule } from './dicas/dicas.module';
 import { HomeModule } from './home/home.module';
 import { MinhaContaModule } from './minha-conta/minha-conta.module';
 import { NovidadesModule } from './novidades/novidades.module';
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'controle', loadChildren: () => ControleModule, canActivate: [AuthdGuard] },
   { path: 'cartoes', loadChildren: () => CartaoModule, canActivate: [AuthdGuard] },
   { path: 'minha-conta', loadChildren: () => MinhaContaModule, canActivate: [AuthdGuard] },
-  { path: 'detalhes', loadChildren: () => NovidadesModule, canActivate: [AuthdGuard]}
+  { path: 'detalhes', loadChildren: () => NovidadesModule, canActivate: [AuthdGuard] },
+  { path: 'dicas-economia', loadChildren: () => DicasModule, canActivate: [AuthdGuard] }
 
 ];
 

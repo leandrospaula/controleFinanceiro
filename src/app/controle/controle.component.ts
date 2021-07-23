@@ -168,11 +168,13 @@ export class ControleComponent implements OnInit {
         this.despesasFixas = res.dados;
       });
     }, (e) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Erro!',
-        text: 'Aconteceu um erro, detalhamento : ' + e.error.erros
-      });
+      if (e.status != 403) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: 'Aconteceu um erro, detalhamento : ' + e.error.erros
+        });
+      }
     });
   }
 

@@ -29,6 +29,9 @@ export class AuthInterceptorService implements HttpInterceptor {
             } else if (e.status == 403) {
                 window.localStorage.clear();
                 this.rota.navigate(['']);
+                Swal.fire({
+                    text: 'Acesso não autenticado, faça o login novamente'
+                });
                 return throwError(e);
             } else {
                 return throwError(e);
