@@ -138,7 +138,7 @@ export class ControleComponent implements OnInit {
 
   mudarMes(operacao: boolean) {
     let alvo = this.mes.mes + (operacao ? 1 : -1);
-    console.log(`alvo ${alvo}, mes atual: ${this.mesAtual}`);
+    // console.log(`alvo ${alvo}, mes atual: ${this.mesAtual}`);
     if (alvo == this.mesAtual) {
       this.editarMes(this.meses[0]);
     } else if (alvo < this.mesAtual) {
@@ -194,8 +194,18 @@ export class ControleComponent implements OnInit {
     if (op) {
       this.ano += 1;
       this.carregarDados();
+      if (this.ano == this.anoAtual) {
+        this.mesAtual = new Date().getMonth() + 1;
+      } else {
+        this.mesAtual = 1;
+      }
     } else {
       this.ano -= 1;
+      if (this.ano == this.anoAtual) {
+        this.mesAtual = new Date().getMonth() + 1;
+      } else {
+        this.mesAtual = 1;
+      }
       if (this.ano > 2018) {
         this.carregarDados();
       } else {

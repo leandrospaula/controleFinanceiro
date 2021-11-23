@@ -11,6 +11,7 @@
                     <div class="form-group col-sm-6 col-md-2">
                         <label>Versão:</label>
                         <select [(ngModel)]="versao" name="versaoS" #versaoS="ngModel" class="form-control">
+                            <option value="22/11/2021">22/11/2021</option>
                             <option value="23/07/2021">23/07/2021</option>
                             <option value="15/06/2021">15/06/2021</option>
                             <option value="10/05/2021">10/05/2021</option>
@@ -26,11 +27,18 @@
                 <div>
                     Detalhes da versão de <b>{{versao}}</b>:
                     <br /><br />
+                    <div *ngIf="versao== 22/11/2021">
+                        <ul>
+                            <li>
+                                <span>Correção na troca de mês fora do ano letivo atual.</span>
+                            </li>
+                        </ul>
+                    </div>
                     <div *ngIf="versao == '23/07/2021'">
                         <ul>
                             <h5>Correções</h5>
                             <li>
-                                <span>Ajuste do backgroudn em telas maiores que 1980x1080.</span>
+                                <span>Ajuste do background em telas maiores que 1980x1080.</span>
                             </li>
                             <li>
                                 <span>Ajuste na mensagem de aviso quando token expirado</span>
